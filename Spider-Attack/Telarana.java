@@ -39,8 +39,42 @@ public class Telarana extends Actor
             Nivel1 nivel1=(Nivel1)getWorld();
             nivel1.puntos.incrementar();
             getWorld().removeObject(Boy);
+            if(nivel1.puntos.obtenerValor()%10==6)
+            {
+                Greenfoot.setWorld(new Nivel2());
+            }
         }
 
+         Actor Guy=getOneObjectAtOffset(0,0,Guy.class);
+        if(Guy!=null){            
+            Nivel2 nivel2=(Nivel2)getWorld();
+            getWorld().removeObject(Guy);
+            nivel2.puntos.incrementar();
+            if(nivel2.puntos.obtenerValor()%10 == 5)
+            {
+                Greenfoot.setWorld(new Nivel3());
+            }
+
+        }
+        
+        Actor Airplane=getOneObjectAtOffset(0,0,Airplane.class);
+        if(Airplane!=null){    
+            Nivel3 nivel3=(Nivel3)getWorld();
+
+            nivel3.puntos.incrementar();
+
+            nivel3.vidaAirplane.decrementar();
+
+            if(nivel3.puntos.obtenerValor() == 1000)
+            {
+                getWorld().removeObject(Airplane);
+                Greenfoot.setWorld(new ScreenScore());
+            }
+
+        }
+        
+        
+        
         if((getX()>=getWorld().getWidth()-5) || (getX()<=5)){
             getWorld().removeObject(this);
         }

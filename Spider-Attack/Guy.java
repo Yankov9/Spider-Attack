@@ -2,15 +2,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Boy extends Actor
+
+public class Guy extends Actor
 {
     int puntaje;
     String nombre;
     RecordManager recordManager = new RecordManager(puntaje,nombre);
-    
     public void act() 
     {
-        move(2);
+        move(4);
         World m=getWorld();
         if(getX()>=m.getWidth()-5||getX()<=5){
             turn(180);
@@ -28,20 +28,17 @@ public class Boy extends Actor
 
         Actor Spider =getOneObjectAtOffset(0,0,Spider.class);
         if(Spider!=null){
-            Nivel1 nivel1 = (Nivel1)getWorld();
+            Nivel2 nivel2 = (Nivel2)getWorld();
             getWorld().removeObject(Spider);
-            nivel1.vidas.decrementar();
+            nivel2.vidas.decrementar();
             getWorld().addObject(new Spider(),50,300);
-            if(nivel1.vidas.obtenerValor()==0){
+            if(nivel2.vidas.obtenerValor()==0){
                 String playerName = Greenfoot.ask("Escribe tu nombre"+",");
-                puntaje=nivel1.puntos.obtenerValor()*10;
+                puntaje=nivel2.puntos.obtenerValor()*20+60;
                 recordManager.save(new Record(playerName, puntaje));
                 
-                Greenfoot.setWorld(new ScreenGameOver());
-            }
+                Greenfoot.setWorld(new ScreenGameOver());    
+            }  
         }
-        
-        
     }
 }   
-

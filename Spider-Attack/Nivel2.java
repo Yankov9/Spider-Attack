@@ -3,19 +3,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 
-public class Nivel1 extends World
+public class Nivel2 extends World
 {
 
     public Vida objLife;
     Hud puntos;
     Hud vidas;
-    public Nivel1()
+    public Nivel2()
     {    
         super(600, 400, 1); 
         setPaintOrder(Hud.class,Boy.class,Spider.class);
         Spider s1 = new Spider();
         addObject(s1,50,50);
-        createBoy(6); 
+        createGuy(6); 
         objLife = new Vida();
         puntos = new Hud(0,"Score:");
         vidas = new Hud(1,"Vida:");
@@ -24,9 +24,9 @@ public class Nivel1 extends World
 
     }
 
-    public void createBoy(int numero){
+    public void createGuy(int numero){
         for(int i=0; i <numero;i++){
-            Boy p = new Boy();
+            Guy p = new Guy();
             int x=Greenfoot.getRandomNumber(getWidth());
             int y=Greenfoot.getRandomNumber(getHeight());
             addObject(p,x,y);
