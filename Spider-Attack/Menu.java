@@ -10,8 +10,8 @@ public class Menu extends World
     }
 
     private void prepararMundo(){
-        addObject(new Jugar(),310,110);
+        addObject(new JugarButton(),310,110);
         addObject(new ScoreButton(),310,210);
-        addObject(new Controles(),310,310);
+        addObject(new ControlesButton(),310,310);
     }
 }

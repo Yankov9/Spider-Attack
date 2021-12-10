@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 
-public class Controles extends Button
+public class ControlesButton extends Button
 {
     public void act() 
     {
