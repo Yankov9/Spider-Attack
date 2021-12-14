@@ -4,15 +4,19 @@ import javax.swing.JOptionPane;
 public class ScreenScore extends World
 {
     int puntaje;
-    int flag = 0;
     String nombre;
     RecordManager recordManager = new RecordManager(puntaje,nombre);
     public ScreenScore()
     {    
         super(600, 400, 1); 
         addObject(new BackButton(),31,370);
-        System.out.println(recordManager.getRecords());
-        this.showText(" Puntaje mas alto: " ,130, 130);
+        List<Record> records = recordManager.getRecords();
+        int i = 1;
+        for(Record record:records){
+            String recordName = "Player:        " + record.getPlayer() + "         Score: " + Integer.toString(record.getScore());
+            this.showText(recordName,200,110 + i * 25);
+            i++;
+        }
     }
   
 }

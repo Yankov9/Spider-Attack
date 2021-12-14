@@ -8,6 +8,9 @@ public class Nivel3 extends World
     Hud puntos;
     Hud vidas;
     Hud vidaAirplane;
+    int puntaje;
+    String nombre;
+    RecordManager recordManager = new RecordManager(puntaje,nombre);
 
     public Nivel3()
     {    
